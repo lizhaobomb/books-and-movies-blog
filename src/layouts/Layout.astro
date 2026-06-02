@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = '分享书籍和电影的个人博客' } = Astro.props;
+const baseUrl = Astro.config.base;
 ---
 
 <!doctype html>
@@ -13,8 +14,8 @@ const { title, description = '分享书籍和电影的个人博客' } = Astro.pr
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href={baseUrl + '/favicon.svg'} />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -22,17 +23,17 @@ const { title, description = '分享书籍和电影的个人博客' } = Astro.pr
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <a href="/" class="flex items-center space-x-2">
+            <a href={baseUrl} class="flex items-center space-x-2">
               <span class="text-2xl">📚</span>
               <span class="font-serif text-xl font-bold text-primary-500">书影分享</span>
             </a>
           </div>
           <div class="flex items-center space-x-8">
-            <a href="/" class="text-dark hover:text-primary-500 transition-colors">首页</a>
-            <a href="/books" class="text-dark hover:text-primary-500 transition-colors">书籍</a>
-            <a href="/movies" class="text-dark hover:text-primary-500 transition-colors">电影</a>
-            <a href="/about" class="text-dark hover:text-primary-500 transition-colors">关于</a>
-            <a href="/search" class="text-dark hover:text-primary-500 transition-colors">
+            <a href={baseUrl} class="text-dark hover:text-primary-500 transition-colors">首页</a>
+            <a href={baseUrl + '/books'} class="text-dark hover:text-primary-500 transition-colors">书籍</a>
+            <a href={baseUrl + '/movies'} class="text-dark hover:text-primary-500 transition-colors">电影</a>
+            <a href={baseUrl + '/about'} class="text-dark hover:text-primary-500 transition-colors">关于</a>
+            <a href={baseUrl + '/search'} class="text-dark hover:text-primary-500 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -58,10 +59,10 @@ const { title, description = '分享书籍和电影的个人博客' } = Astro.pr
           <div>
             <h4 class="font-bold mb-4">快速链接</h4>
             <ul class="space-y-2 text-sm text-gray-300">
-              <li><a href="/" class="hover:text-white transition-colors">首页</a></li>
-              <li><a href="/books" class="hover:text-white transition-colors">书籍</a></li>
-              <li><a href="/movies" class="hover:text-white transition-colors">电影</a></li>
-              <li><a href="/about" class="hover:text-white transition-colors">关于</a></li>
+              <li><a href={baseUrl} class="hover:text-white transition-colors">首页</a></li>
+              <li><a href={baseUrl + '/books'} class="hover:text-white transition-colors">书籍</a></li>
+              <li><a href={baseUrl + '/movies'} class="hover:text-white transition-colors">电影</a></li>
+              <li><a href={baseUrl + '/about'} class="hover:text-white transition-colors">关于</a></li>
             </ul>
           </div>
           <div>

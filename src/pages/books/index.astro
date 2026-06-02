@@ -2,11 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 
+const baseUrl = Astro.config.base;
 const books = [
   {
     title: '百年孤独',
     author: '加西亚·马尔克斯',
-    cover: '/images/books/百年孤独.jpg',
+    cover: baseUrl + '/images/books/百年孤独.jpg',
     rating: 5,
     genre: ['文学', '魔幻现实主义'],
     year: 1967,
@@ -16,7 +17,7 @@ const books = [
   {
     title: '小王子',
     author: '安托万·德·圣-埃克苏佩里',
-    cover: '/images/books/小王子.jpg',
+    cover: baseUrl + '/images/books/小王子.jpg',
     rating: 5,
     genre: ['童话', '哲学'],
     year: 1943,
@@ -26,7 +27,7 @@ const books = [
   {
     title: '活着',
     author: '余华',
-    cover: '/images/books/活着.jpg',
+    cover: baseUrl + '/images/books/活着.jpg',
     rating: 5,
     genre: ['文学', '现实主义'],
     year: 1993,
@@ -36,7 +37,7 @@ const books = [
   {
     title: '三体',
     author: '刘慈欣',
-    cover: '/images/books/三体.jpg',
+    cover: baseUrl + '/images/books/三体.jpg',
     rating: 5,
     genre: ['科幻', '文学'],
     year: 2008,
@@ -46,7 +47,7 @@ const books = [
   {
     title: '追风筝的人',
     author: '卡勒德·胡赛尼',
-    cover: '/images/books/追风筝的人.jpg',
+    cover: baseUrl + '/images/books/追风筝的人.jpg',
     rating: 4,
     genre: ['文学', '小说'],
     year: 2003,
@@ -56,7 +57,7 @@ const books = [
   {
     title: '解忧杂货店',
     author: '东野圭吾',
-    cover: '/images/books/解忧杂货店.jpg',
+    cover: baseUrl + '/images/books/解忧杂货店.jpg',
     rating: 4,
     genre: ['文学', '推理'],
     year: 2012,

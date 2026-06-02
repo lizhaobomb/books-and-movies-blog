@@ -2,11 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 
+const baseUrl = Astro.config.base;
 const movies = [
   {
     title: '肖申克的救赎',
     director: '弗兰克·德拉邦特',
-    poster: '/images/movies/肖申克的救赎.jpg',
+    poster: baseUrl + '/images/movies/肖申克的救赎.jpg',
     rating: 5,
     genre: ['剧情', '犯罪'],
     year: 1994,
@@ -18,7 +19,7 @@ const movies = [
   {
     title: '霸王别姬',
     director: '陈凯歌',
-    poster: '/images/movies/霸王别姬.jpg',
+    poster: baseUrl + '/images/movies/霸王别姬.jpg',
     rating: 5,
     genre: ['剧情', '爱情', '历史'],
     year: 1993,
@@ -30,7 +31,7 @@ const movies = [
   {
     title: '千与千寻',
     director: '宫崎骏',
-    poster: '/images/movies/千与千寻.jpg',
+    poster: baseUrl + '/images/movies/千与千寻.jpg',
     rating: 5,
     genre: ['动画', '奇幻', '冒险'],
     year: 2001,
@@ -42,7 +43,7 @@ const movies = [
   {
     title: '这个杀手不太冷',
     director: '吕克·贝松',
-    poster: '/images/movies/这个杀手不太冷.jpg',
+    poster: baseUrl + '/images/movies/这个杀手不太冷.jpg',
     rating: 5,
     genre: ['剧情', '动作', '犯罪'],
     year: 1994,
@@ -54,7 +55,7 @@ const movies = [
   {
     title: '阿甘正传',
     director: '罗伯特·泽米吉斯',
-    poster: '/images/movies/阿甘正传.jpg',
+    poster: baseUrl + '/images/movies/阿甘正传.jpg',
     rating: 5,
     genre: ['剧情', '爱情'],
     year: 1994,
@@ -66,7 +67,7 @@ const movies = [
   {
     title: '泰坦尼克号',
     director: '詹姆斯·卡梅隆',
-    poster: '/images/movies/泰坦尼克号.jpg',
+    poster: baseUrl + '/images/movies/泰坦尼克号.jpg',
     rating: 5,
     genre: ['剧情', '爱情', '灾难'],
     year: 1997,

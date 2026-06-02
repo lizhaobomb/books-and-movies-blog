@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
+const baseUrl = Astro.config.base;
 const featuredBooks = [
   {
     title: '百年孤独',
     author: '加西亚·马尔克斯',
-    cover: '/images/books/百年孤独.jpg',
+    cover: baseUrl + '/images/books/百年孤独.jpg',
     rating: 5,
     genre: ['文学', '魔幻现实主义'],
     year: 1967,
@@ -16,7 +17,7 @@ const featuredBooks = [
   {
     title: '小王子',
     author: '安托万·德·圣-埃克苏佩里',
-    cover: '/images/books/小王子.jpg',
+    cover: baseUrl + '/images/books/小王子.jpg',
     rating: 5,
     genre: ['童话', '哲学'],
     year: 1943,
@@ -26,7 +27,7 @@ const featuredBooks = [
   {
     title: '活着',
     author: '余华',
-    cover: '/images/books/活着.jpg',
+    cover: baseUrl + '/images/books/活着.jpg',
     rating: 5,
     genre: ['文学', '现实主义'],
     year: 1993,
@@ -39,7 +40,7 @@ const featuredMovies = [
   {
     title: '肖申克的救赎',
     director: '弗兰克·德拉邦特',
-    poster: '/images/movies/肖申克的救赎.jpg',
+    poster: baseUrl + '/images/movies/肖申克的救赎.jpg',
     rating: 5,
     genre: ['剧情', '犯罪'],
     year: 1994,
@@ -51,7 +52,7 @@ const featuredMovies = [
   {
     title: '霸王别姬',
     director: '陈凯歌',
-    poster: '/images/movies/霸王别姬.jpg',
+    poster: baseUrl + '/images/movies/霸王别姬.jpg',
     rating: 5,
     genre: ['剧情', '爱情', '历史'],
     year: 1993,
@@ -63,7 +64,7 @@ const featuredMovies = [
   {
     title: '千与千寻',
     director: '宫崎骏',
-    poster: '/images/movies/千与千寻.jpg',
+    poster: baseUrl + '/images/movies/千与千寻.jpg',
     rating: 5,
     genre: ['动画', '奇幻', '冒险'],
     year: 2001,
@@ -87,10 +88,10 @@ const featuredMovies = [
           分享阅读和观影的乐趣，记录生活中的美好时光
         </p>
         <div class="flex justify-center space-x-4 animate-fade-in-delay-2">
-          <a href="/books" class="btn-primary bg-white text-primary-500 hover:bg-gray-100">
+          <a href={baseUrl + '/books'} class="btn-primary bg-white text-primary-500 hover:bg-gray-100">
             浏览书籍
           </a>
-          <a href="/movies" class="btn-secondary border-white text-white hover:bg-white/10">
+          <a href={baseUrl + '/movies'} class="btn-secondary border-white text-white hover:bg-white/10">
             探索电影
           </a>
         </div>
@@ -113,7 +114,7 @@ const featuredMovies = [
         ))}
       </div>
       <div class="text-center mt-10">
-        <a href="/books" class="btn-primary">
+        <a href={baseUrl + '/books'} class="btn-primary">
           查看更多书籍
         </a>
       </div>
@@ -135,7 +136,7 @@ const featuredMovies = [
         ))}
       </div>
       <div class="text-center mt-10">
-        <a href="/movies" class="btn-primary">
+        <a href={baseUrl + '/movies'} class="btn-primary">
           查看更多电影
         </a>
       </div>
@@ -152,19 +153,19 @@ const featuredMovies = [
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="/books?genre=文学" class="card p-6 text-center hover:bg-primary-50 transition-colors">
+        <a href={baseUrl + '/books?genre=文学'} class="card p-6 text-center hover:bg-primary-50 transition-colors">
           <div class="text-3xl mb-2">📚</div>
           <div class="font-serif font-bold">文学</div>
         </a>
-        <a href="/books?genre=科幻" class="card p-6 text-center hover:bg-primary-50 transition-colors">
+        <a href={baseUrl + '/books?genre=科幻'} class="card p-6 text-center hover:bg-primary-50 transition-colors">
           <div class="text-3xl mb-2">🚀</div>
           <div class="font-serif font-bold">科幻</div>
         </a>
-        <a href="/movies?genre=剧情" class="card p-6 text-center hover:bg-primary-50 transition-colors">
+        <a href={baseUrl + '/movies?genre=剧情'} class="card p-6 text-center hover:bg-primary-50 transition-colors">
           <div class="text-3xl mb-2">🎬</div>
           <div class="font-serif font-bold">剧情</div>
         </a>
-        <a href="/movies?genre=动画" class="card p-6 text-center hover:bg-primary-50 transition-colors">
+        <a href={baseUrl + '/movies?genre=动画'} class="card p-6 text-center hover:bg-primary-50 transition-colors">
           <div class="text-3xl mb-2">🎨</div>
           <div class="font-serif font-bold">动画</div>
         </a>
