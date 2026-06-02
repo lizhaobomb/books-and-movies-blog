@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="关于 - 书影分享">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+        <img 
+          src="/images/avatar.jpg" 
+          alt="头像"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <h1 class="font-serif text-4xl font-bold text-dark mb-4">关于我</h1>
+      <p class="text-xl text-gray-600">
+        一个热爱阅读和观影的普通人
+      </p>
+    </div>
+
+    <!-- Bio Section -->
+    <div class="card p-8 mb-12">
+      <h2 class="font-serif text-2xl font-bold text-dark mb-4">个人简介</h2>
+      <div class="prose prose-lg max-w-none">
+        <p class="text-gray-600 mb-4">
+          你好！欢迎来到我的书影分享空间。我是一个热爱阅读和观影的人，喜欢在文字和影像中寻找感动和思考。
+        </p>
+        <p class="text-gray-600 mb-4">
+          这个网站是我用来记录和分享那些触动我的书籍和电影的地方。每一本书、每一部电影都承载着独特的故事和情感，我希望通过这个平台，能与更多人分享这些美好的体验。
+        </p>
+        <p class="text-gray-600">
+          如果你也有喜欢的书籍或电影想要分享，欢迎通过以下方式联系我。
+        </p>
+      </div>
+    </div>
+
+    <!-- Interests Section -->
+    <div class="card p-8 mb-12">
+      <h2 class="font-serif text-2xl font-bold text-dark mb-6">兴趣爱好</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex items-start space-x-4">
+          <div class="text-3xl">📚</div>
+          <div>
+            <h3 class="font-bold text-dark mb-2">阅读</h3>
+            <p class="text-gray-600 text-sm">
+              喜欢文学、科幻、哲学等各类书籍，享受在文字中遨游的时光。
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="text-3xl">🎬</div>
+          <div>
+            <h3 class="font-bold text-dark mb-2">电影</h3>
+            <p class="text-gray-600 text-sm">
+              热爱各类电影，从经典老片到现代佳作，喜欢思考电影背后的故事。
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="text-3xl">🎵</div>
+          <div>
+            <h3 class="font-bold text-dark mb-2">音乐</h3>
+            <p class="text-gray-600 text-sm">
+              喜欢在阅读和观影时聆听音乐，不同的心情搭配不同的旋律。
+            </p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="text-3xl">✍️</div>
+          <div>
+            <h3 class="font-bold text-dark mb-2">写作</h3>
+            <p class="text-gray-600 text-sm">
+              喜欢记录阅读和观影后的感想，用文字留住那些美好的瞬间。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="card p-8">
+      <h2 class="font-serif text-2xl font-bold text-dark mb-6">联系方式</h2>
+      <div class="space-y-4">
+        <div class="flex items-center space-x-4">
+          <div class="text-2xl">📧</div>
+          <div>
+            <p class="text-gray-600">邮箱</p>
+            <a href="mailto:example@email.com" class="text-primary-500 hover:text-primary-600 transition-colors">
+              example@email.com
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="text-2xl">🐙</div>
+          <div>
+            <p class="text-gray-600">GitHub</p>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600 transition-colors">
+              github.com/yourusername
+            </a>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="text-2xl">🐦</div>
+          <div>
+            <p class="text-gray-600">Twitter</p>
+            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-primary-500 hover:text-primary-600 transition-colors">
+              @yourusername
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

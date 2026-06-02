@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+
+const books = [
+  {
+    title: '百年孤独',
+    author: '加西亚·马尔克斯',
+    cover: '/images/books/百年孤独.jpg',
+    rating: 5,
+    genre: ['文学', '魔幻现实主义'],
+    year: 1967,
+    description: '《百年孤独》是魔幻现实主义文学的代表作，描写了布恩迪亚家族七代人的传奇故事，以及加勒比海沿岸小镇马孔多的百年兴衰，反映了拉丁美洲一个世纪以来风云变幻的历史。',
+    featured: true,
+  },
+  {
+    title: '小王子',
+    author: '安托万·德·圣-埃克苏佩里',
+    cover: '/images/books/小王子.jpg',
+    rating: 5,
+    genre: ['童话', '哲学'],
+    year: 1943,
+    description: '小王子是一个超凡脱俗的仙童，他住在一颗只比他大一丁点儿的小行星上。陪伴他的是一朵他非常喜爱的小玫瑰花。但玫瑰花的虚荣心伤害了小王子对她的感情。小王子告别小行星，开始了遨游太空的旅行。',
+    featured: true,
+  },
+  {
+    title: '活着',
+    author: '余华',
+    cover: '/images/books/活着.jpg',
+    rating: 5,
+    genre: ['文学', '现实主义'],
+    year: 1993,
+    description: '地主少爷福贵嗜赌成性，终于赌光了家业一贫如洗，穷困之中福贵因母亲生病前去求医，没想到半路上被国民党部队抓了壮丁，后被解放军所俘虏，回到家乡他才知道母亲已经过世，妻子家珍含辛茹苦带大了一双儿女，但女儿不幸变成了哑巴。',
+    featured: true,
+  },
+  {
+    title: '三体',
+    author: '刘慈欣',
+    cover: '/images/books/三体.jpg',
+    rating: 5,
+    genre: ['科幻', '文学'],
+    year: 2008,
+    description: '文化大革命如火如荼进行的同时，军方探寻外星文明的绝密计划"红岸工程"取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运。',
+    featured: false,
+  },
+  {
+    title: '追风筝的人',
+    author: '卡勒德·胡赛尼',
+    cover: '/images/books/追风筝的人.jpg',
+    rating: 4,
+    genre: ['文学', '小说'],
+    year: 2003,
+    description: '12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。',
+    featured: false,
+  },
+  {
+    title: '解忧杂货店',
+    author: '东野圭吾',
+    cover: '/images/books/解忧杂货店.jpg',
+    rating: 4,
+    genre: ['文学', '推理'],
+    year: 2012,
+    description: '僻静的街道旁有一家杂货店，只要写下烦恼投进卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答。因彷徨不安而前来咨询的人络绎不绝，而他们也在这里找到了人生的方向。',
+    featured: false,
+  },
+];
+
+const genres = [...new Set(books.flatMap(book => book.genre))];
+---
+
+<Layout title="书籍 - 书影分享">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+      <h1 class="font-serif text-4xl font-bold text-dark mb-4">书籍推荐</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        这些书籍陪伴我度过了许多美好时光，希望能与你分享其中的感动和思考。
+      </p>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="mb-8">
+      <div class="flex flex-wrap justify-center gap-2">
+        <button class="px-4 py-2 rounded-full bg-primary-500 text-white text-sm font-medium transition-colors">
+          全部
+        </button>
+        {genres.map((genre) => (
+          <button class="px-4 py-2 rounded-full bg-white text-dark text-sm font-medium hover:bg-primary-50 transition-colors">
+            {genre}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Books Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {books.map((book) => (
+        <Card type="book" item={book} />
+      ))}
+    </div>
+  </div>
+</Layout>
