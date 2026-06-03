@@ -76,25 +76,5 @@ const genres = [...new Set(movies.flatMap(movie => movie.genre))];
         <Card type="movie" item={movie} baseUrl={baseUrl} />
       ))}
     </div>
-
-    <div class="mt-16">
-      <div class="text-center mb-8">
-        <h2 class="font-serif text-2xl font-bold text-dark mb-4">📝 相关影评</h2>
-      </div>
-      <div class="bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg p-6 text-white">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="flex-1">
-            <span class="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full mb-3">最新评论</span>
-            <h3 class="font-serif text-xl font-bold mb-2">婚礼当天被逃婚，他独自去度了蜜月</h3>
-            <p class="text-primary-100 text-sm mb-4">
-              2026年最治愈的爱情片《我独自蜜月》，笑着笑着就哭了...
-            </p>
-          </div>
-          <a href={baseUrl + '/posts/solo-mio-review'} class="px-6 py-3 bg-white text-primary-500 font-medium rounded-lg hover:bg-gray-100 transition-colors whitespace-nowrap">
-            阅读全文
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </Layout>
