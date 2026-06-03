@@ -4,14 +4,53 @@ import Card from '../../components/Card.astro';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
 
-import movies from '../../data/movies.json';
+const movies = [
+  {
+    id: 'shawshank-redemption',
+    title: '肖申克的救赎',
+    director: '弗兰克·德拉邦特',
+    poster: '肖申克的救赎.jpg',
+    rating: 5,
+    genre: ['剧情', '犯罪'],
+    year: 1994,
+    duration: 142,
+    cast: ['蒂姆·罗宾斯', '摩根·弗里曼'],
+    description: '一场谋杀案使银行家安迪蒙冤入狱，在鲨堡监狱里，他结识了黑人囚犯瑞德，两人成为朋友。安迪不动声色、步步为营地谋划自我拯救并最终成功越狱，同时也拯救了瑞德。',
+    featured: true
+  },
+  {
+    id: 'farewell-my-concubine',
+    title: '霸王别姬',
+    director: '陈凯歌',
+    poster: '霸王别姬.jpg',
+    rating: 5,
+    genre: ['剧情', '爱情', '历史'],
+    year: 1993,
+    duration: 171,
+    cast: ['张国荣', '张丰毅', '巩俐'],
+    description: '段小楼与程蝶衣是一对打小一起长大的师兄弟，两人一个演生，一个饰旦，一向配合天衣无缝，尤其一出《霸王别姬》，更是誉满京城。',
+    featured: true
+  },
+  {
+    id: 'spirited-away',
+    title: '千与千寻',
+    director: '宫崎骏',
+    poster: '千与千寻.jpg',
+    rating: 5,
+    genre: ['动画', '奇幻', '冒险'],
+    year: 2001,
+    duration: 125,
+    cast: ['柊瑠美', '入野自由'],
+    description: '千寻和爸爸妈妈一同驱车前往新家，在郊外的小路上不慎进入了神秘的隧道——Loss另一个世界。远处飘来食物的香味，爸爸妈妈大快朵颐，千寻却在附近的一栋建筑里找到了一份工作。',
+    featured: true
+  }
+];
 
 const genres = [...new Set(movies.flatMap(movie => movie.genre))];
 ---
 
 <Layout title="电影 - 书影分享">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Page Header -->
     <div class="text-center mb-12">
       <h1 class="font-serif text-4xl font-bold text-dark mb-4">电影推荐</h1>
       <p class="text-gray-600 max-w-2xl mx-auto">
@@ -19,7 +58,6 @@ const genres = [...new Set(movies.flatMap(movie => movie.genre))];
       </p>
     </div>
 
-    <!-- Filter Section -->
     <div class="mb-8">
       <div class="flex flex-wrap justify-center gap-2">
         <button class="px-4 py-2 rounded-full bg-primary-500 text-white text-sm font-medium transition-colors">
@@ -33,14 +71,12 @@ const genres = [...new Set(movies.flatMap(movie => movie.genre))];
       </div>
     </div>
 
-    <!-- Movies Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {movies.map((movie) => (
         <Card type="movie" item={movie} baseUrl={baseUrl} />
       ))}
     </div>
 
-    <!-- Related Articles Section -->
     <div class="mt-16">
       <div class="text-center mb-8">
         <h2 class="font-serif text-2xl font-bold text-dark mb-4">📝 相关影评</h2>
