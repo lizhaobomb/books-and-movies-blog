@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Comments from '../../components/Comments.astro';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
+const postTitle = '婚礼当天被逃婚，他独自去度了蜜月：2026最治愈的爱情片，笑着笑着就哭了';
 ---
 
 <Layout title="婚礼当天被逃婚，他独自去度了蜜月 - 书影分享">
@@ -139,6 +141,8 @@ const baseUrl = import.meta.env.BASE_URL || '/';
         </div>
       </div>
     </div>
+
+    <Comments title={postTitle} />
 
     <footer class="mt-12 pt-8 border-t border-gray-200">
       <div class="flex justify-between items-center">

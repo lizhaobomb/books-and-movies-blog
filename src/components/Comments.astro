@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="mt-16">
+  <h2 class="font-serif text-2xl font-bold text-dark mb-6">💬 评论区</h2>
+  
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="lizhaobomb/books-and-movies-blog"
+    data-repo-id="R_kgDOK5D4_w"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK5D4_84CTJ6C"
+    data-mapping="title"
+    data-term={title}
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+  
+  <style>
+    .giscus {
+      width: 100%;
+    }
+  </style>
+</section>
