@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: 'https://lizhaobomb.github.io',
-  base: '/books-and-movies-blog',
+  site: 'https://www.dreamshelf.cc.cd',
+  base: '/',
   output: 'static',
   integrations: [
     tailwind(),
