@@ -3,77 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
-const featuredBooks = [
-  {
-    title: '百年孤独',
-    author: '加西亚·马尔克斯',
-    cover: baseUrl + '/images/books/百年孤独.jpg',
-    rating: 5,
-    genre: ['文学', '魔幻现实主义'],
-    year: 1967,
-    description: '《百年孤独》是魔幻现实主义文学的代表作，描写了布恩迪亚家族七代人的传奇故事，以及加勒比海沿岸小镇马孔多的百年兴衰，反映了拉丁美洲一个世纪以来风云变幻的历史。',
-    featured: true,
-  },
-  {
-    title: '小王子',
-    author: '安托万·德·圣-埃克苏佩里',
-    cover: baseUrl + '/images/books/小王子.jpg',
-    rating: 5,
-    genre: ['童话', '哲学'],
-    year: 1943,
-    description: '小王子是一个超凡脱俗的仙童，他住在一颗只比他大一丁点儿的小行星上。陪伴他的是一朵他非常喜爱的小玫瑰花。但玫瑰花的虚荣心伤害了小王子对她的感情。小王子告别小行星，开始了遨游太空的旅行。',
-    featured: true,
-  },
-  {
-    title: '活着',
-    author: '余华',
-    cover: baseUrl + '/images/books/活着.jpg',
-    rating: 5,
-    genre: ['文学', '现实主义'],
-    year: 1993,
-    description: '地主少爷福贵嗜赌成性，终于赌光了家业一贫如洗，穷困之中福贵因母亲生病前去求医，没想到半路上被国民党部队抓了壮丁，后被解放军所俘虏，回到家乡他才知道母亲已经过世，妻子家珍含辛茹苦带大了一双儿女，但女儿不幸变成了哑巴。',
-    featured: true,
-  },
-];
 
-const featuredMovies = [
-  {
-    title: '肖申克的救赎',
-    director: '弗兰克·德拉邦特',
-    poster: baseUrl + '/images/movies/肖申克的救赎.jpg',
-    rating: 5,
-    genre: ['剧情', '犯罪'],
-    year: 1994,
-    duration: 142,
-    cast: ['蒂姆·罗宾斯', '摩根·弗里曼'],
-    description: '一场谋杀案使银行家安迪蒙冤入狱，在鲨堡监狱里，他结识了黑人囚犯瑞德，两人成为朋友。安迪不动声色、步步为营地谋划自我拯救并最终成功越狱，同时也拯救了瑞德。',
-    featured: true,
-  },
-  {
-    title: '霸王别姬',
-    director: '陈凯歌',
-    poster: baseUrl + '/images/movies/霸王别姬.jpg',
-    rating: 5,
-    genre: ['剧情', '爱情', '历史'],
-    year: 1993,
-    duration: 171,
-    cast: ['张国荣', '张丰毅', '巩俐'],
-    description: '段小楼与程蝶衣是一对打小一起长大的师兄弟，两人一个演生，一个饰旦，一向配合天衣无缝，尤其一出《霸王别姬》，更是誉满京城。',
-    featured: true,
-  },
-  {
-    title: '千与千寻',
-    director: '宫崎骏',
-    poster: baseUrl + '/images/movies/千与千寻.jpg',
-    rating: 5,
-    genre: ['动画', '奇幻', '冒险'],
-    year: 2001,
-    duration: 125,
-    cast: ['柊瑠美', '入野自由'],
-    description: '千寻和爸爸妈妈一同驱车前往新家，在郊外的小路上不慎进入了神秘的隧道——Loss另一个世界。远处飘来食物的香味，爸爸妈妈大快朵颐，千寻却在附近的一栋建筑里找到了一份工作。',
-    featured: true,
-  },
-];
+import books from '../data/books.json';
+import movies from '../data/movies.json';
+
+const featuredBooks = books.filter(book => book.featured);
+const featuredMovies = movies.filter(movie => movie.featured);
 ---
 
 <Layout title="首页 - 书影分享">
@@ -110,7 +45,7 @@ const featuredMovies = [
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredBooks.map((book) => (
-          <Card type="book" item={book} />
+          <Card type="book" item={book} baseUrl={baseUrl} />
         ))}
       </div>
       <div class="text-center mt-10">
@@ -132,7 +67,7 @@ const featuredMovies = [
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredMovies.map((movie) => (
-          <Card type="movie" item={movie} />
+          <Card type="movie" item={movie} baseUrl={baseUrl} />
         ))}
       </div>
       <div class="text-center mt-10">
@@ -144,7 +79,7 @@ const featuredMovies = [
   </section>
 
   <!-- Latest Posts Section -->
-  <section class="py-16 bg-light">
+  <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="font-serif text-3xl font-bold text-dark mb-4">最新文章</h2>
@@ -172,7 +107,7 @@ const featuredMovies = [
   </section>
 
   <!-- Categories Section -->
-  <section class="py-16">
+  <section class="py-16 bg-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="font-serif text-3xl font-bold text-dark mb-4">探索分类</h2>

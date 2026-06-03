@@ -3,80 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 
 const baseUrl = import.meta.env.BASE_URL || '/';
-const movies = [
-  {
-    title: '肖申克的救赎',
-    director: '弗兰克·德拉邦特',
-    poster: baseUrl + '/images/movies/肖申克的救赎.jpg',
-    rating: 5,
-    genre: ['剧情', '犯罪'],
-    year: 1994,
-    duration: 142,
-    cast: ['蒂姆·罗宾斯', '摩根·弗里曼'],
-    description: '一场谋杀案使银行家安迪蒙冤入狱，在鲨堡监狱里，他结识了黑人囚犯瑞德，两人成为朋友。安迪不动声色、步步为营地谋划自我拯救并最终成功越狱，同时也拯救了瑞德。',
-    featured: true,
-  },
-  {
-    title: '霸王别姬',
-    director: '陈凯歌',
-    poster: baseUrl + '/images/movies/霸王别姬.jpg',
-    rating: 5,
-    genre: ['剧情', '爱情', '历史'],
-    year: 1993,
-    duration: 171,
-    cast: ['张国荣', '张丰毅', '巩俐'],
-    description: '段小楼与程蝶衣是一对打小一起长大的师兄弟，两人一个演生，一个饰旦，一向配合天衣无缝，尤其一出《霸王别姬》，更是誉满京城。',
-    featured: true,
-  },
-  {
-    title: '千与千寻',
-    director: '宫崎骏',
-    poster: baseUrl + '/images/movies/千与千寻.jpg',
-    rating: 5,
-    genre: ['动画', '奇幻', '冒险'],
-    year: 2001,
-    duration: 125,
-    cast: ['柊瑠美', '入野自由'],
-    description: '千寻和爸爸妈妈一同驱车前往新家，在郊外的小路上不慎进入了神秘的隧道——Loss另一个世界。远处飘来食物的香味，爸爸妈妈大快朵颐，千寻却在附近的一栋建筑里找到了一份工作。',
-    featured: true,
-  },
-  {
-    title: '这个杀手不太冷',
-    director: '吕克·贝松',
-    poster: baseUrl + '/images/movies/这个杀手不太冷.jpg',
-    rating: 5,
-    genre: ['剧情', '动作', '犯罪'],
-    year: 1994,
-    duration: 110,
-    cast: ['让·雷诺', '娜塔莉·波特曼'],
-    description: '里昂是名孤独的职业杀手，受人雇佣。一天，邻居家小姑娘马蒂尔达敲开他的房门，要求他收留她。原来邻居家的主人是警方缉毒组的眼线，因为他私吞了一小包毒品而遭到组长的报复。',
-    featured: false,
-  },
-  {
-    title: '阿甘正传',
-    director: '罗伯特·泽米吉斯',
-    poster: baseUrl + '/images/movies/阿甘正传.jpg',
-    rating: 5,
-    genre: ['剧情', '爱情'],
-    year: 1994,
-    duration: 142,
-    cast: ['汤姆·汉克斯', '罗宾·怀特'],
-    description: '阿甘于二战结束后不久出生在美国南方阿拉巴马州一个闭塞的小镇，他先天弱智，智商只有75，然而他的妈妈是一个性格坚强的女性，她常常鼓励阿甘"傻人有傻福"，要他自强不息。',
-    featured: false,
-  },
-  {
-    title: '泰坦尼克号',
-    director: '詹姆斯·卡梅隆',
-    poster: baseUrl + '/images/movies/泰坦尼克号.jpg',
-    rating: 5,
-    genre: ['剧情', '爱情', '灾难'],
-    year: 1997,
-    duration: 194,
-    cast: ['莱昂纳多·迪卡普里奥', '凯特·温斯莱特'],
-    description: '1912年4月10日，号称"世界工业史上的奇迹"的豪华客轮泰坦尼克号开始了自己的处女航，从英国的南安普顿出发驶往美国纽约。富家少女罗丝与穷小子杰克在船上相遇，两人一见钟情。',
-    featured: false,
-  },
-];
+
+import movies from '../../data/movies.json';
 
 const genres = [...new Set(movies.flatMap(movie => movie.genre))];
 ---
@@ -108,7 +36,7 @@ const genres = [...new Set(movies.flatMap(movie => movie.genre))];
     <!-- Movies Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {movies.map((movie) => (
-        <Card type="movie" item={movie} />
+        <Card type="movie" item={movie} baseUrl={baseUrl} />
       ))}
     </div>
 
