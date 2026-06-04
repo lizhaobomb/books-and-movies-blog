@@ -21,7 +21,8 @@ const { type, item, baseUrl } = Astro.props;
 const image = type === 'book' ? item.cover : item.poster;
 const creator = type === 'book' ? item.author : item.director;
 const creatorLabel = type === 'book' ? '作者' : '导演';
-const imagePath = `${baseUrl}/images/${type}s/${image}`;
+const isRemoteImage = image && (image.startsWith('http://') || image.startsWith('https://'));
+const imagePath = isRemoteImage ? image : `${baseUrl}/images/${type}s/${image}`;
 const detailUrl = item.article ? `${baseUrl}${item.article}` : `${baseUrl}/${type}s/${item.id}`;
 ---
 
