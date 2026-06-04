@@ -38,25 +38,31 @@ graph TB
 
 ## 2. 技术描述
 
-- **前端框架**：Astro@4.x - 静态站点生成器，支持多框架组件
-- **UI 框架**：原生 Astro 组件 + Tailwind CSS@3.x
-- **内容管理**：Astro Content Collections + MDX
-- **构建工具**：Vite（Astro 内置）
-- **包管理器**：npm
-- **部署平台**：GitHub Pages
-- **CI/CD**：GitHub Actions
+* **前端框架**：<Astro@4.x> - 静态站点生成器，支持多框架组件
+
+* **UI 框架**：原生 Astro 组件 + Tailwind <CSS@3.x>
+
+* **内容管理**：Astro Content Collections + MDX
+
+* **构建工具**：Vite（Astro 内置）
+
+* **包管理器**：npm
+
+* **部署平台**：GitHub Pages
+
+* **CI/CD**：GitHub Actions
 
 ## 3. 路由定义
 
-| 路由 | 用途 | 页面类型 |
-|------|------|----------|
-| `/` | 首页，展示精选推荐和最新内容 | 静态页面 |
-| `/books` | 书籍列表页面，支持筛选和搜索 | 静态页面 |
-| `/books/[slug]` | 书籍详情页面 | 静态页面 |
-| `/movies` | 电影列表页面，支持筛选和搜索 | 静态页面 |
-| `/movies/[slug]` | 电影详情页面 | 静态页面 |
-| `/about` | 关于页面 | 静态页面 |
-| `/search` | 搜索结果页面 | 静态页面 |
+| 路由               | 用途             | 页面类型 |
+| ---------------- | -------------- | ---- |
+| `/`              | 首页，展示精选推荐和最新内容 | 静态页面 |
+| `/books`         | 书籍列表页面，支持筛选和搜索 | 静态页面 |
+| `/books/[slug]`  | 书籍详情页面         | 静态页面 |
+| `/movies`        | 电影列表页面，支持筛选和搜索 | 静态页面 |
+| `/movies/[slug]` | 电影详情页面         | 静态页面 |
+| `/about`         | 关于页面           | 静态页面 |
+| `/search`        | 搜索结果页面         | 静态页面 |
 
 ## 4. 项目结构
 
@@ -96,6 +102,7 @@ src/
 ## 5. 数据模型
 
 ### 5.1 书籍数据模型
+
 ```typescript
 interface Book {
   title: string;           // 书籍标题
@@ -115,6 +122,7 @@ interface Book {
 ```
 
 ### 5.2 电影数据模型
+
 ```typescript
 interface Movie {
   title: string;           // 电影标题
@@ -138,50 +146,75 @@ interface Movie {
 ### 6.1 核心组件
 
 **Layout.astro** - 主布局组件
-- 包含 HTML 头部、导航栏、页脚
-- 接收页面标题和描述作为 props
-- 集成全局样式和字体
+
+* 包含 HTML 头部、导航栏、页脚
+
+* 接收页面标题和描述作为 props
+
+* 集成全局样式和字体
 
 **Card.astro** - 内容卡片组件
-- 显示封面/海报、标题、评分、简介
-- 支持书籍和电影两种模式
-- 包含悬停动画效果
+
+* 显示封面/海报、标题、评分、简介
+
+* 支持书籍和电影两种模式
+
+* 包含悬停动画效果
 
 **Filter.astro** - 筛选组件
-- 按类型、评分、年份筛选
-- 支持多选和清除筛选
-- 响应式设计
+
+* 按类型、评分、年份筛选
+
+* 支持多选和清除筛选
+
+* 响应式设计
 
 **Search.astro** - 搜索组件
-- 实时搜索建议
-- 支持标题、作者、导演、标签搜索
-- 搜索结果高亮
+
+* 实时搜索建议
+
+* 支持标题、作者、导演、标签搜索
+
+* 搜索结果高亮
 
 **StarRating.astro** - 星级评分组件
-- 显示1-5星评分
-- 支持半星显示
-- 可配置大小和颜色
+
+* 显示1-5星评分
+
+* 支持半星显示
+
+* 可配置大小和颜色
 
 ### 6.2 页面组件
 
 **index.astro** - 首页
-- Hero 区域展示精选推荐
-- 最新内容滚动展示
-- 分类导航卡片
+
+* Hero 区域展示精选推荐
+
+* 最新内容滚动展示
+
+* 分类导航卡片
 
 **books/index.astro** - 书籍列表
-- 筛选栏
-- 网格布局的书籍卡片
-- 分页或无限滚动
+
+* 筛选栏
+
+* 网格布局的书籍卡片
+
+* 分页或无限滚动
 
 **movies/index.astro** - 电影列表
-- 筛选栏
-- 网格布局的电影卡片
-- 分页或无限滚动
+
+* 筛选栏
+
+* 网格布局的电影卡片
+
+* 分页或无限滚动
 
 ## 7. 样式方案
 
 ### 7.1 Tailwind CSS 配置
+
 ```javascript
 // tailwind.config.mjs
 export default {
@@ -216,6 +249,7 @@ export default {
 ```
 
 ### 7.2 全局样式
+
 ```css
 /* src/styles/global.css */
 @tailwind base;
@@ -246,6 +280,7 @@ export default {
 ## 8. GitHub Pages 部署配置
 
 ### 8.1 GitHub Actions 工作流
+
 ```yaml
 # .github/workflows/deploy.yml
 name: Deploy to GitHub Pages
@@ -301,6 +336,7 @@ jobs:
 ```
 
 ### 8.2 Astro 配置
+
 ```javascript
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
@@ -330,38 +366,60 @@ export default defineConfig({
 ## 9. 性能优化
 
 ### 9.1 图片优化
-- 使用 Astro 的图片优化功能
-- 为封面和海报提供多种尺寸
-- 使用 WebP 格式，提供 fallback
+
+* 使用 Astro 的图片优化功能
+
+* 为封面和海报提供多种尺寸
+
+* 使用 WebP 格式，提供 fallback
 
 ### 9.2 字体优化
-- 使用 Google Fonts 的字体子集
-- 预加载关键字体
-- 使用 font-display: swap
+
+* 使用 Google Fonts 的字体子集
+
+* 预加载关键字体
+
+* 使用 font-display: swap
 
 ### 9.3 代码分割
-- Astro 自动进行代码分割
-- 按页面加载必要的 JavaScript
-- 使用客户端指令按需加载交互组件
+
+* Astro 自动进行代码分割
+
+* 按页面加载必要的 JavaScript
+
+* 使用客户端指令按需加载交互组件
 
 ### 9.4 缓存策略
-- 静态资源使用长期缓存
-- HTML 文件使用协商缓存
-- 使用 CDN 加速全球访问
+
+* 静态资源使用长期缓存
+
+* HTML 文件使用协商缓存
+
+* 使用 CDN 加速全球访问
 
 ## 10. 开发规范
 
 ### 10.1 文件命名
-- 组件文件使用 PascalCase：`Card.astro`
-- 页面文件使用 kebab-case：`book-list.astro`
-- 样式文件使用 kebab-case：`global.css`
+
+* 组件文件使用 PascalCase：`Card.astro`
+
+* 页面文件使用 kebab-case：`book-list.astro`
+
+* 样式文件使用 kebab-case：`global.css`
 
 ### 10.2 代码风格
-- 使用 ESLint + Prettier 进行代码格式化
-- 组件使用 TypeScript 进行类型检查
-- 遵循 Astro 官方最佳实践
+
+* 使用 ESLint + Prettier 进行代码格式化
+
+* 组件使用 TypeScript 进行类型检查
+
+* 遵循 Astro 官方最佳实践
 
 ### 10.3 版本控制
-- 使用 Git 进行版本控制
-- 遵循 Conventional Commits 规范
-- 主分支保持稳定，开发使用功能分支
+
+* 使用 Git 进行版本控制
+
+* 遵循 Conventional Commits 规范
+
+* 主分支保持稳定，开发使用功能分支
+
