@@ -26,35 +26,81 @@ const { showWechat = true, showAlipay = true } = Astro.props;
   </div>
 
   <div class="mt-6 bg-light rounded-lg p-6">
-    <div class="text-center mb-4">
+    <div class="text-center">
       <h3 class="font-serif text-lg font-bold text-dark mb-2">❤️ 赞赏支持</h3>
-      <p class="text-gray-500 text-sm">如果这篇文章对你有帮助，欢迎打赏支持</p>
+      <p class="text-gray-500 text-sm mb-4">如果这篇文章对你有帮助，欢迎打赏支持</p>
+      <button 
+        id="donateButton"
+        class="px-8 py-3 bg-primary-500 text-white font-medium rounded-lg hover:bg-primary-600 transition-colors shadow-md hover:shadow-lg"
+      >
+        点击赞赏
+      </button>
     </div>
+  </div>
+</div>
+
+<div id="donateModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-2xl p-6 max-w-lg w-full mx-4 shadow-2xl">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-serif text-xl font-bold text-dark">❤️ 赞赏支持</h3>
+      <button 
+        id="closeModal"
+        class="text-gray-400 hover:text-gray-600 text-2xl font-bold"
+      >
+        ×
+      </button>
+    </div>
+    <p class="text-gray-600 text-sm text-center mb-6">
+      选择你方便的方式进行赞赏，感谢你的支持！
+    </p>
     <div class="flex justify-center gap-8">
       {showWechat && (
         <div class="text-center">
-          <div class="bg-white p-3 rounded-lg inline-block shadow-md">
+          <div class="bg-gray-100 p-4 rounded-xl inline-block">
             <img 
               src="https://s41.ax1x.com/2026/06/08/pmnC4BR.jpg" 
               alt="微信收款码"
-              class="w-28 h-28 object-cover rounded"
+              class="w-48 h-48 object-cover rounded-lg"
             />
           </div>
-          <p class="text-sm text-gray-600 mt-2">微信</p>
+          <p class="text-gray-600 mt-3 font-medium">微信</p>
         </div>
       )}
       {showAlipay && (
         <div class="text-center">
-          <div class="bg-white p-3 rounded-lg inline-block shadow-md">
+          <div class="bg-gray-100 p-4 rounded-xl inline-block">
             <img 
               src="https://s41.ax1x.com/2026/06/08/pmnCoAx.jpg" 
               alt="支付宝收款码"
-              class="w-28 h-28 object-cover rounded"
+              class="w-48 h-48 object-cover rounded-lg"
             />
           </div>
-          <p class="text-sm text-gray-600 mt-2">支付宝</p>
+          <p class="text-gray-600 mt-3 font-medium">支付宝</p>
         </div>
       )}
     </div>
   </div>
 </div>
+
+<script>
+  const donateButton = document.getElementById('donateButton');
+  const donateModal = document.getElementById('donateModal');
+  const closeModal = document.getElementById('closeModal');
+
+  donateButton.addEventListener('click', () => {
+    donateModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeModal.addEventListener('click', () => {
+    donateModal.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  donateModal.addEventListener('click', (e) => {
+    if (e.target === donateModal) {
+      donateModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
