@@ -1,0 +1,27 @@
+---
+interface Props {
+  uv?: number;
+  pv?: number;
+}
+
+const { uv = 12345, pv = 67890 } = Astro.props;
+
+const formatNumber = (num: number): string => {
+  if (num >= 10000) {
+    return (num / 10000).toFixed(1) + 'w';
+  }
+  return num.toLocaleString();
+};
+---
+
+<div class="flex justify-center gap-8 py-4 border-t border-gray-100">
+  <div class="text-center">
+    <div class="text-2xl font-bold text-primary-500">{formatNumber(pv)}</div>
+    <div class="text-xs text-gray-500">浏览量</div>
+  </div>
+  <div class="w-px bg-gray-200"></div>
+  <div class="text-center">
+    <div class="text-2xl font-bold text-primary-500">{formatNumber(uv)}</div>
+    <div class="text-xs text-gray-500">访客数</div>
+  </div>
+</div>

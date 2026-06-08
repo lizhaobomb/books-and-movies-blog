@@ -1,0 +1,60 @@
+---
+interface Props {
+  showWechat?: boolean;
+  showAlipay?: boolean;
+}
+
+const { showWechat = true, showAlipay = true } = Astro.props;
+---
+
+<div class="mt-12">
+  <div class="bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg p-6 text-white">
+    <div class="text-center mb-6">
+      <h3 class="font-serif text-xl font-bold mb-2">📢 关注公众号</h3>
+      <p class="text-primary-100 text-sm">获取更多精彩内容，第一时间收到更新推送</p>
+    </div>
+    <div class="flex justify-center mb-6">
+      <div class="bg-white p-3 rounded-lg">
+        <img 
+          src="https://via.placeholder.com/120x120?text=公众号二维码" 
+          alt="公众号二维码"
+          class="w-32 h-32 object-cover rounded"
+        />
+      </div>
+    </div>
+    <p class="text-center text-sm text-primary-100">扫码关注「书影分享」公众号</p>
+  </div>
+
+  <div class="mt-6 bg-light rounded-lg p-6">
+    <div class="text-center mb-4">
+      <h3 class="font-serif text-lg font-bold text-dark mb-2">❤️ 赞赏支持</h3>
+      <p class="text-gray-500 text-sm">如果这篇文章对你有帮助，欢迎打赏支持</p>
+    </div>
+    <div class="flex justify-center gap-8">
+      {showWechat && (
+        <div class="text-center">
+          <div class="bg-white p-3 rounded-lg inline-block shadow-md">
+            <img 
+              src="https://via.placeholder.com/120x120?text=微信收款码" 
+              alt="微信收款码"
+              class="w-28 h-28 object-cover rounded"
+            />
+          </div>
+          <p class="text-sm text-gray-600 mt-2">微信</p>
+        </div>
+      )}
+      {showAlipay && (
+        <div class="text-center">
+          <div class="bg-white p-3 rounded-lg inline-block shadow-md">
+            <img 
+              src="https://via.placeholder.com/120x120?text=支付宝收款码" 
+              alt="支付宝收款码"
+              class="w-28 h-28 object-cover rounded"
+            />
+          </div>
+          <p class="text-sm text-gray-600 mt-2">支付宝</p>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
