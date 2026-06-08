@@ -82,7 +82,7 @@ const { showWechat = true, showAlipay = true } = Astro.props;
   </div>
 </div>
 
-<script>
+<script is:inline>
   window.openDonateModal = function() {
     document.getElementById('donateModal').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
