@@ -1,27 +1,55 @@
----
-interface Props {
-  uv?: number;
-  pv?: number;
-}
+<script>
+  (function() {
+    const namespace = 'lizhaobomb-blog';
+    const key = 'page-stats';
+    
+    function formatNumber(num) {
+      if (num >= 10000) {
+        return (num / 10000).toFixed(1) + 'w';
+      }
+      return num.toLocaleString();
+    }
 
-const { uv = 12345, pv = 67890 } = Astro.props;
+    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+      .then(response => response.json())
+      .then(data => {
+        const pv = data.value || 0;
+        document.getElementById('pv-count').textContent = formatNumber(pv);
+      })
+      .catch(() => {
+        console.warn('Failed to load PV count');
+      });
 
-const formatNumber = (num: number): string => {
-  if (num >= 10000) {
-    return (num / 10000).toFixed(1) + 'w';
-  }
-  return num.toLocaleString();
-};
----
+    fetch(`https://api.countapi.xyz/get/${namespace}/uv-count`)
+      .then(response => response.json())
+      .then(data => {
+        const uv = data.value || 0;
+        document.getElementById('uv-count').textContent = formatNumber(uv);
+      })
+      .catch(() => {
+        console.warn('Failed to load UV count');
+      });
+
+    const today = new Date().toISOString().split('T')[0];
+    const uvKey = `uv-${today}`;
+    const uvCookie = document.cookie.replace(/(?:(?:^|.*;\s*)uv_visited\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    
+    if (!uvCookie) {
+      document.cookie = 'uv_visited=1; max-age=86400';
+      fetch(`https://api.countapi.xyz/hit/${namespace}/uv-count`)
+        .catch(() => {});
+    }
+  })();
+</script>
 
 <div class="flex justify-center gap-8 py-4 border-t border-gray-100">
   <div class="text-center">
-    <div class="text-2xl font-bold text-primary-500">{formatNumber(pv)}</div>
+    <div id="pv-count" class="text-2xl font-bold text-primary-500">6.8w</div>
     <div class="text-xs text-gray-500">浏览量</div>
   </div>
   <div class="w-px bg-gray-200"></div>
   <div class="text-center">
-    <div class="text-2xl font-bold text-primary-500">{formatNumber(uv)}</div>
+    <div id="uv-count" class="text-2xl font-bold text-primary-500">1.2w</div>
     <div class="text-xs text-gray-500">访客数</div>
   </div>
 </div>
